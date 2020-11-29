@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.9" />
+<meta name="generator" content="AsciiDoc 9.0.4" />
 <title>OpenSMILES specification</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -435,7 +436,7 @@ thead, p.table.header {
 p.table {
   margin-top: 0;
 }
-/* Because the table frame attribute is overriden by CSS in most browsers. */
+/* Because the table frame attribute is overridden by CSS in most browsers. */
 div.tableblock > table[frame="void"] {
   border-style: none;
 }
@@ -745,6 +746,7 @@ asciidoc.install();
 <div class="paragraph"><p><a href="http://www.opensmiles.org">www.opensmiles.org</a></p></div>
 <div class="paragraph"><p>Copyright &copy; 2007-2016, Craig A. James</p></div>
 <div class="paragraph"><p>Content is available under <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a></p></div>
+<div class="paragraph"><p>Source for this document: <a href="https://github.com/opensmiles/OpenSMILES">https://github.com/opensmiles/OpenSMILES</a></p></div>
 <div class="paragraph"><p>Contributors: Richard Apodaca, Noel O&#8217;Boyle, Andrew Dalke, John van Drie, Peter Ertl,
 Geoff Hutchison, Craig A. James, Greg Landrum, Chris Morley, Egon Willighagen, Hans De Winter, Tim Vandermeersch, John May</p></div>
 </div>
@@ -1580,7 +1582,7 @@ cellspacing="0" cellpadding="4">
 <td align="left" valign="top"><p class="table"><span class="image">
 <img src="depict/perhydroisoquinoline.gif" alt="depict/perhydroisoquinoline.gif" />
 </span></p></td>
-<td align="left" valign="top"><p class="table"><code>N1CC2CCCC2CC1</code></p></td>
+<td align="left" valign="top"><p class="table"><code>N1CC2CCCCC2CC1</code></p></td>
 <td align="left" valign="top"><p class="table">perhydroisoquinoline</p></td>
 </tr>
 </tbody>
@@ -3987,6 +3989,70 @@ cellspacing="0" cellpadding="4">
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_smiles_flavors">5.1. SMILES Flavors</h3>
+<div class="paragraph"><p>It is an unfortunately common misconception that a Canonical SMILES does not
+contain stereochemistry (<a href="http://www.mdpi.com/1420-3049/22/12/2075/htm">Minkiewicz et al. 2017</a>) or alternatively that all SMILES must be canonical (<a href="http://pubs.acs.org/doi/abs/10.1021/ci800135h">Sykora and Leahy, 2008</a>). SMILES flavors as described by Daylight are summarised below.</p></div>
+<div class="tableblock">
+<table rules="rows"
+width="100%"
+frame="hsides"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<thead>
+<tr>
+<th align="center" valign="middle"> Flavor           </th>
+<th align="center" valign="middle"> Atoms and Bonds Distinctly Ordered </th>
+<th align="center" valign="middle"> Stereochemistry </th>
+<th align="center" valign="middle"> Isotopes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center" valign="middle"><p class="table">Canonical SMILES</p></td>
+<td align="center" valign="middle"><p class="table">Y</p></td>
+<td align="center" valign="middle"><p class="table">Y/N</p></td>
+<td align="center" valign="middle"><p class="table">Y/N</p></td>
+</tr>
+<tr>
+<td align="center" valign="middle"><p class="table">Arbitrary SMILES</p></td>
+<td align="center" valign="middle"><p class="table">N</p></td>
+<td align="center" valign="middle"><p class="table">Y/N</p></td>
+<td align="center" valign="middle"><p class="table">Y/N</p></td>
+</tr>
+<tr>
+<td align="center" valign="middle"><p class="table">Isomeric SMILES</p></td>
+<td align="center" valign="middle"><p class="table">Y/N</p></td>
+<td align="center" valign="middle"><p class="table">Y</p></td>
+<td align="center" valign="middle"><p class="table">Y</p></td>
+</tr>
+<tr>
+<td align="center" valign="middle"><p class="table">Unique SMILES</p></td>
+<td align="center" valign="middle"><p class="table">Y</p></td>
+<td align="center" valign="middle"><p class="table">N</p></td>
+<td align="center" valign="middle"><p class="table">N</p></td>
+</tr>
+<tr>
+<td align="center" valign="middle"><p class="table">Absolute SMILES</p></td>
+<td align="center" valign="middle"><p class="table">Y</p></td>
+<td align="center" valign="middle"><p class="table">Y</p></td>
+<td align="center" valign="middle"><p class="table">Y</p></td>
+</tr>
+<tr>
+<td align="center" valign="middle"><p class="table">Generic SMILES</p></td>
+<td align="center" valign="middle"><p class="table">N</p></td>
+<td align="center" valign="middle"><p class="table">N</p></td>
+<td align="center" valign="middle"><p class="table">N</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>These terms can be confusing and <strong>should be avoided</strong> due to conflicting definitions between vendors and toolkits. For example ChemAxon use the term <strong>Isomeric SMILES</strong> to mean a non-canonical SMILES with stereochemistry and isotopic information specified (see <a href="https://docs.chemaxon.com/display/docs/SMILES">SMILES, ChemAxon Documentation</a>). OEChem use the term <strong>Isomeric SMILES</strong> to mean a canonical SMILES with stereochemistry and isotopic information specified (see <a href="https://docs.eyesopen.com/toolkits/cpp/oechemtk/OEChemFunctions/OECreateIsoSmiString.html"><code>OECreateIsoSmiString</code></a>), <strong>Absolute SMILES</strong> to mean a non-canonical SMILES with stereochemistry and isotopic information specified (see <a href="https://docs.eyesopen.com/toolkits/cpp/oechemtk/OEChemFunctions/OECreateAbsSmiString.html"><code>OECreateAbsSmiString</code></a>), and <strong>Canonical SMILES</strong> to mean a canonical SMILES <strong>without</strong> stereochemistry and isotopic information specified (see <a href="https://docs.eyesopen.com/toolkits/cpp/oechemtk/OEChemFunctions/OECreateCanSmiString.html"><code>OECreateCanSmiString</code></a>).</p></div>
+<div class="paragraph"><p>In general the properties encoded in a SMILES can be chosen by a program to suit a particular purpose. You may have the option to independently include or omit stereochemistry, isotopes, or atom map/class in a generated SMILES. When referencing a particular SMILES flavor confusion can be avoided by including the toolkit, version, and options used.</p></div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -4429,7 +4495,8 @@ cellspacing="0" cellpadding="4">
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br />
-Last updated 2017-04-10 10:05:50 BST
+Last updated
+ 2020-11-29 20:52:53 GMT
 </div>
 </div>
 </body>
